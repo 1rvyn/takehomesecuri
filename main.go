@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 
+	"github.com/1rvyn/takehomesecuri/database"
 	"github.com/1rvyn/takehomesecuri/routes"
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
+	database.ConnectDb()
 
 	app := fiber.New()
 
