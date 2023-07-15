@@ -1,28 +1,7 @@
 package graph
 
-import (
-	"context"
-
-	"github.com/1rvyn/takehomesecuri/database"
-)
+// This file will not be regenerated automatically.
+//
+// It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct{}
-
-func (r *mutationResolver) CreateEmployee(ctx context.Context, input model.EmployeeInput) (*model.EmployeeInput, error) {
-	employee := &model.Employee{
-		FirstName:    input.FirstName,
-		LastName:     input.LastName,
-		Username:     input.Username,
-		Password:     input.Password,
-		Email:        input.Email,
-		DOB:          input.DOB,
-		DepartmentID: input.DepartmentID,
-		Position:     input.Position,
-	}
-
-	if err := database.Database.Db.Create(&employee).Error; err != nil {
-		return nil, err
-	}
-
-	return employee, nil
-}
